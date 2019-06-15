@@ -23,6 +23,8 @@ struct DoubleList
     void AddList(int value, int position = 0);
     void DeleteList(int position);
     
+    void СleanList();
+    
     void PrintList(bool bKey, bool bData);
     void GenerateRandomList(int size);
     

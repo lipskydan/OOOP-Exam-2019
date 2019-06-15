@@ -76,6 +76,16 @@ void DoubleList::DeleteList(int position)
     cout<<"\nЭлемент удален...\n\n";
 }
 
+//***********************УДАЛЕНИЕ ВСЕХ ЭЛЕМЕНТОВ***********************
+
+void DoubleList::СleanList()
+{
+    while(global_key!=1){
+        DeleteList(global_key);
+        global_key--;
+    }
+}
+
 //*************************ВЫВОД СПИСКА*************************
 
 void DoubleList::PrintList(bool bKey, bool bData)

@@ -17,13 +17,25 @@ public:
     std::vector<int> vec;
 public:
     void CopyToVec();
-    void Save();
+    void Save(int from, int to, bool full);
     void ShowVec();
+    void CleanVec();
     
     void QuickSort();
+    void SelectSort();
+    void HeapSort();
+    void RadixSort();
 
 private:
     void quickSortAlg(int low, int high);
+    
+    void selectionSortAlg(int size);
+    
+    void heapHelp(int n, int i);
+    void heapSortAlg(int n);
+    
+    vector<int> radixHelper (vector<int> arr, int spot);
+    void radixSortAlg();
 };
 
 #endif /* Sorting_hpp */

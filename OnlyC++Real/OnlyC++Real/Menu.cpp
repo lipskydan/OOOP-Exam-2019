@@ -17,13 +17,14 @@ void menu::Menu(){
     {
         cout<<"1. Добавить элемент"<<endl;
         cout<<"2. Удалить элемент"<<endl;
-        cout<<"3. Вывести список (only data)"<<endl;
-        cout<<"4. Вывести список (only key)"<<endl;
-        cout<<"5. Вывести список (key & data)"<<endl;
-        cout<<"6. Генерация списка"<<endl;
-        cout<<"7. Найти елемент списка по ключу"<<endl;
-        cout<<"8. Изменить елемент списка по ключу"<<endl;
-        cout<<"9. Сортировка"<<endl;
+        cout<<"3. Очистить список"<<endl;
+        cout<<"4. Вывести список (only data)"<<endl;
+        cout<<"5. Вывести список (only key)"<<endl;
+        cout<<"6. Вывести список (key & data)"<<endl;
+        cout<<"7. Генерация списка"<<endl;
+        cout<<"8. Найти елемент списка по ключу"<<endl;
+        cout<<"9. Изменить елемент списка по ключу"<<endl;
+        cout<<"10. Сортировка"<<endl;
         cout<<"0. Выйти"<<endl;
         cout<<"\nНомер операции > "; cin>>x;
         switch (x)
@@ -38,19 +39,22 @@ void menu::Menu(){
                 a.DeleteList(position);
                 break;
             case 3:
-                a.PrintList(false, true);
+                a.СleanList();
                 break;
             case 4:
-                a.PrintList(true, false);
+                a.PrintList(false, true);
                 break;
             case 5:
-                a.PrintList(true, true);
+                a.PrintList(true, false);
                 break;
             case 6:
+                a.PrintList(true, true);
+                break;
+            case 7:
                 cout<<"Количество элементов > "; cin>>size;
                 a.GenerateRandomList(size);
                 break;
-            case 7:
+            case 8:
                 cout<<"Номер ключа > "; cin>>value;
                 cout << "Елемент < ";
                 if (a.GetValueByKey(value).first == a.GetValueByKey(value).second == -1) {
@@ -60,18 +64,22 @@ void menu::Menu(){
                 }
                 cout << "\n\n";
                 break;
-            case 8:
+            case 9:
                 cout<<"Номер ключа > "; cin>>position;
                 cout<<"Значение > "; cin>>value;
                 
                 cout<<"Операция < ";
                 a.ChangeValueByKey(position, value);
                 break;
-            case 9:
+            case 10:
                 sort.CopyToVec();
                 do{
                     cout<<"1. Quick Sort"<<endl;
-                    cout<<"2. Сохранить очередность и выйти с меню сортировки"<<endl;
+                    cout<<"2. Select Sort"<<endl;
+                    cout<<"3. Heap Sort"<<endl;
+                    cout<<"4. Radix Sort"<<endl;
+                    cout<<"5. Сохранить очередность и выйти с меню сортировки"<<endl;
+                    cout<<"6. Show"<<endl;
                     cout<<"0. Выйти"<<endl;
                     cout<<"\nНомер операции > "; cin>>y;
                     
@@ -80,11 +88,32 @@ void menu::Menu(){
                             sort.QuickSort();
                             break;
                         case 2:
-                            sort.Save();
+                            sort.SelectSort();
+                            break;
+                        case 3:
+                            sort.HeapSort();
+                            break;
+                        case 4:
+                            sort.RadixSort();
+                            break;
+                        case 5:
+                            bool full;
+                            cout << " Сохранить полностью? (1 - yes / 0 - no): "; cin >> full;
+                            int from, to;
+                            if (!full){
+                                cout << " Сохранить с елемента №"; cin >> from;
+                                cout << " по елемента №"; cin >> to;
+                            }
+                            
+                            sort.Save(from, to, full);
                             y = 0;
+                            break;
+                        case 6:
+                            sort.ShowVec();
                             break;
                     }
                 }while (y!=0);
+                sort.CleanVec();
                 break;
         }
     } while (x!=0);
