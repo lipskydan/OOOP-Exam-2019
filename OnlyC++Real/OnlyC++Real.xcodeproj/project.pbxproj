@@ -29,6 +29,8 @@
 		25369FFF22B4D20E0046958E /* SL.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SL.hpp; sourceTree = "<group>"; };
 		2536A00122B4F0DC0046958E /* Sorting.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Sorting.cpp; sourceTree = "<group>"; };
 		2536A00222B4F0DC0046958E /* Sorting.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Sorting.hpp; sourceTree = "<group>"; };
+		25AC921422B50CD8008C0944 /* Menu.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Menu.cpp; sourceTree = "<group>"; };
+		25AC921522B50CD8008C0944 /* Menu.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Menu.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,8 @@
 				25369FF722B4D1E20046958E /* main.cpp */,
 				2536A00122B4F0DC0046958E /* Sorting.cpp */,
 				2536A00222B4F0DC0046958E /* Sorting.hpp */,
+				25AC921422B50CD8008C0944 /* Menu.cpp */,
+				25AC921522B50CD8008C0944 /* Menu.hpp */,
 			);
 			path = "OnlyC++Real";
 			sourceTree = "<group>";

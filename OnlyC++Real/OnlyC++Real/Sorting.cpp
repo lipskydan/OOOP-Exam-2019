@@ -78,7 +78,7 @@ void Sorting::Save()
         i++;
     }while (p!=head);
     
-    cout<<"\nСписок отсортирован и сохранен...\n\n";
+    cout<<"\nСписок сохранен...\n\n";
 }
 
 void Sorting::ShowVec()
