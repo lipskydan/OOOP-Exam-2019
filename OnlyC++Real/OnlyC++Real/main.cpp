@@ -7,9 +7,40 @@
 //
 
 #include <iostream>
+#include "SL.hpp"
+#include "SL.cpp"
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+using namespace std;
+
+int main() {
+    setlocale(LC_ALL, "Rus");
+    DoubleList a;
+    int value, position, x;
+    do
+    {
+        cout<<"1. Добавить элемент"<<endl;
+        cout<<"2. Удалить элемент"<<endl;
+        cout<<"3. Вывести список"<<endl;
+        cout<<"4. Генерация списка"<<endl;
+        cout<<"0. Выйти"<<endl;
+        cout<<"\nНомер операции > "; cin>>x;
+        switch (x)
+        {
+            case 1:
+                cout<<"Значение > "; cin>>value;
+                a.AddList(value);
+                break;
+            case 2:
+                cout<<"Позиция > "; cin>>position;
+                a.DeleteList(position);
+                break;
+            case 3:
+                a.PrintList();
+                break;
+            case 4:
+                
+                break;
+        }
+    } while (x!=0);
     return 0;
 }

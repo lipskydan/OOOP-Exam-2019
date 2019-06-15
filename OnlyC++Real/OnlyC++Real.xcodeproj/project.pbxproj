@@ -25,6 +25,8 @@
 /* Begin PBXFileReference section */
 		25369FF422B4D1E20046958E /* OnlyC++Real */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "OnlyC++Real"; sourceTree = BUILT_PRODUCTS_DIR; };
 		25369FF722B4D1E20046958E /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		25369FFE22B4D20E0046958E /* SL.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SL.cpp; sourceTree = "<group>"; };
+		25369FFF22B4D20E0046958E /* SL.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SL.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,8 @@
 		25369FF622B4D1E20046958E /* OnlyC++Real */ = {
 			isa = PBXGroup;
 			children = (
+				25369FFE22B4D20E0046958E /* SL.cpp */,
+				25369FFF22B4D20E0046958E /* SL.hpp */,
 				25369FF722B4D1E20046958E /* main.cpp */,
 			);
 			path = "OnlyC++Real";
