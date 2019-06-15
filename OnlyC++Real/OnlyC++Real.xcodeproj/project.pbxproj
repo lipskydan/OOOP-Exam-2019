@@ -27,6 +27,8 @@
 		25369FF722B4D1E20046958E /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		25369FFE22B4D20E0046958E /* SL.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SL.cpp; sourceTree = "<group>"; };
 		25369FFF22B4D20E0046958E /* SL.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SL.hpp; sourceTree = "<group>"; };
+		2536A00122B4F0DC0046958E /* Sorting.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Sorting.cpp; sourceTree = "<group>"; };
+		2536A00222B4F0DC0046958E /* Sorting.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Sorting.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,8 @@
 				25369FFE22B4D20E0046958E /* SL.cpp */,
 				25369FFF22B4D20E0046958E /* SL.hpp */,
 				25369FF722B4D1E20046958E /* main.cpp */,
+				2536A00122B4F0DC0046958E /* Sorting.cpp */,
+				2536A00222B4F0DC0046958E /* Sorting.hpp */,
 			);
 			path = "OnlyC++Real";
 			sourceTree = "<group>";
