@@ -37,7 +37,6 @@ public:
 class BPTree
 {
 public:
-//    std::vector<int> vecTree;
     Node *root;
     void insertInternal(int,Node*,Node*);
     void removeInternal(int,Node*,Node*);
@@ -52,7 +51,7 @@ public:
     ~BPTree();
     
 public:
-    void Copy(vector<int> &vec);
+    void Copy();
 };
 
 #endif /* BPlusTree_hpp */

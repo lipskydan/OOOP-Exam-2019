@@ -30,7 +30,7 @@ void menu::Menu()
     string command;
     int xx;
     bool close = false;
-    vector<int> vecTreeBPlus;
+
 //    command = "5";
 //    stringstream max(command);
 //    max>>MAX;
@@ -176,53 +176,62 @@ void menu::Menu()
                 break;
             case 11: // Trees
                 do{
-                    cout<<"1. B+"<<endl;
-                    cout<<"2. R-B"<<endl;
+                    cout<<"1. R-B"<<endl;
+                    cout<<"2. B+"<<endl;
                     cout<<"0. Выйти с этого раздела"<<endl;
                     cout<<"\nНомер операции > "; cin>>z;
                     cout<<"\n";
                     switch (z) {
                         case 1:
                             do{
-                                cout<<"You choosed B+"<<endl;
+                                cout<<"You choosed R-B\n";
                                 cout<<"0. Выйти с этого раздела"<<endl;
                                 cout<<"\nНомер операции > "; cin>>w;
                             }while (w!=0);
                             break;
                             
                         case 2:
-                            cout<<"You choosed R-B\n";
-                            cout<<"Максимальное количество элементов в одном блоке? :\n";
+                            cout<<"You choosed B+"<<endl;
+                            cout<<"Максимальное количество элементов в одном блоке? :";
                             cin>>command;
+                            cout<<"\n";
                             stringstream max(command);
                             max>>MAX;
-
-                            bpt.Copy(vecTreeBPlus);
                             
-                            cout<<"Имя операции > \n";
-                            cout<<"insert <value> - чтобы вставить\n";
-                            cout<<"delete <value> - чтобы удалить\n";
-                            cout<<"display - чтобы вывести информацию на экран\n";
-                            cout<<"exit - чтобы выйти с этого раздела\n";
+                            StartTimer();
+                            bpt.Copy();
+                            CountTimeAndShowRes();
+                            
                             do
                             {
-                                cout<<"Enter command: ";
+                                cout<<"insert <value> - чтобы вставить\n";
+                                cout<<"delete <value> - чтобы удалить\n";
+                                cout<<"display - чтобы вывести информацию на экран\n";
+                                cout<<"exit - чтобы выйти с этого раздела\n";
+                                cout<<"Имя операции > \n";
+
                                 getline(cin,command);
                                 if(!command.substr(0,6).compare("insert"))
                                 {
                                     stringstream argument(command.substr(7));
                                     argument>>xx;
+                                    StartTimer();
                                     bpt.insert(xx);
+                                    CountTimeAndShowRes();
                                 }
                                 else if(!command.substr(0,6).compare("delete"))
                                 {
                                     stringstream argument(command.substr(7));
                                     argument>>xx;
+                                    StartTimer();
                                     bpt.remove(xx);
+                                    CountTimeAndShowRes();
                                 }
                                 else if(!command.compare("display"))
                                 {
+                                    StartTimer();
                                     bpt.display(bpt.getRoot());
+                                    CountTimeAndShowRes();
                                 }
                                 else if(!command.compare("exit"))
                                 {

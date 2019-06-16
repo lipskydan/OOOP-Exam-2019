@@ -8,7 +8,7 @@
 
 #include "BPlusTree.hpp"
 
-void BPTree::Copy(vector<int> &vec)
+void BPTree::Copy()
 {
     DoubleList *p=head;
     if (p == NULL){
@@ -17,14 +17,9 @@ void BPTree::Copy(vector<int> &vec)
     }
     
     do {
-        vec.push_back(p->data);
+        insert(p->data);
         p = p->next;
     }while (p!=head);
-    
-    for (int i=0; i<vec.size(); i++)
-    {
-        insert(vec[i]);
-    }
 }
 
 Node::Node()
@@ -46,7 +41,7 @@ void BPTree::insert(int x)
         root->key[0] = x;
         root->IS_LEAF = true;
         root->size = 1;
-//        cout<<"Created root\nInserted "<<x<<" successfully\n";
+        cout<<"Created root\nInserted "<<x<<" successfully\n";
     }
     else
     {
@@ -87,12 +82,12 @@ void BPTree::insert(int x)
             cursor->size++;
             cursor->ptr[cursor->size] = cursor->ptr[cursor->size-1];
             cursor->ptr[cursor->size-1] = NULL;
-//            cout<<"Inserted "<<x<<" successfully\n";
+            cout<<"Inserted "<<x<<" successfully\n";
         }
         else
         {
-//            cout<<"Inserted "<<x<<" successfully\n";
-//            cout<<"Overflow in leaf node!\nSplitting leaf node\n";
+            cout<<"Inserted "<<x<<" successfully\n";
+            cout<<"Overflow in leaf node!\nSplitting leaf node\n";
             //overflow condition
             //create new leaf node
             Node* newLeaf = new Node;
@@ -139,7 +134,7 @@ void BPTree::insert(int x)
                 newRoot->IS_LEAF = false;
                 newRoot->size = 1;
                 root = newRoot;
-//                cout<<"Created new root\n";
+                cout<<"Created new root\n";
             }
             else
             {
@@ -169,12 +164,12 @@ void BPTree::insertInternal(int x, Node* cursor, Node* child)
         cursor->key[i] = x;
         cursor->size++;
         cursor->ptr[i+1] = child;
-//        cout<<"Inserted key in an Internal node successfully\n";
+        cout<<"Inserted key in an Internal node successfully\n";
     }
     else
     {
-//        cout<<"Inserted key in an Internal node successfully\n";
-//        cout<<"Overflow in internal node!\nSplitting internal node\n";
+        cout<<"Inserted key in an Internal node successfully\n";
+        cout<<"Overflow in internal node!\nSplitting internal node\n";
         //if overflow in internal node
         //create new internal node
         Node* newInternal = new Node;
@@ -227,7 +222,7 @@ void BPTree::insertInternal(int x, Node* cursor, Node* child)
             newRoot->IS_LEAF = false;
             newRoot->size = 1;
             root = newRoot;
-//            cout<<"Created new root\n";
+            cout<<"Created new root\n";
         }
         else
         {
@@ -265,7 +260,7 @@ void BPTree::remove(int x)
     //delete logic
     if(root==NULL)
     {
-//        cout<<"Tree empty\n";
+        cout<<"Tree empty\n";
     }
     else
     {
@@ -307,7 +302,7 @@ void BPTree::remove(int x)
         }
         if(!found)//if key does not exist in that leaf node
         {
-//            cout<<"Not found\n";
+            cout<<"Not found\n";
             return;
         }
         //deleting the key
@@ -318,14 +313,14 @@ void BPTree::remove(int x)
         cursor->size--;
         if(cursor == root)//if it is root node, then make all pointers NULL
         {
-//            cout<<"Deleted "<<x<<" from leaf node successfully\n";
+            cout<<"Deleted "<<x<<" from leaf node successfully\n";
             for(int i = 0; i < MAX+1; i++)
             {
                 cursor->ptr[i] = NULL;
             }
             if(cursor->size == 0)//if all keys are deleted
             {
-//                cout<<"Tree died\n";
+                cout<<"Tree died\n";
                 delete[] cursor->key;
                 delete[] cursor->ptr;
                 delete cursor;
@@ -335,12 +330,12 @@ void BPTree::remove(int x)
         }
         cursor->ptr[cursor->size] = cursor->ptr[cursor->size+1];
         cursor->ptr[cursor->size+1] = NULL;
-//        cout<<"Deleted "<<x<<" from leaf node successfully\n";
+        cout<<"Deleted "<<x<<" from leaf node successfully\n";
         if(cursor->size >= (MAX+1)/2)//no underflow
         {
             return;
         }
-//        cout<<"Underflow in leaf node!\n";
+        cout<<"Underflow in leaf node!\n";
         //underflow condition
         //first we try to transfer a key from sibling node
         //check if left sibling exists
@@ -367,7 +362,7 @@ void BPTree::remove(int x)
                 leftNode->ptr[leftNode->size+1] = NULL;
                 //update parent
                 parent->key[leftSibling] = cursor->key[0];
-//                cout<<"Transferred "<<cursor->key[0]<<" from left sibling of leaf node\n";
+                cout<<"Transferred "<<cursor->key[0]<<" from left sibling of leaf node\n";
                 return;
             }
         }
@@ -394,7 +389,7 @@ void BPTree::remove(int x)
                 }
                 //update parent
                 parent->key[rightSibling-1] = rightNode->key[0];
-//                cout<<"Transferred "<<cursor->key[cursor->size-1]<<" from right sibling of leaf node\n";
+                cout<<"Transferred "<<cursor->key[cursor->size-1]<<" from right sibling of leaf node\n";
                 return;
             }
         }
@@ -410,7 +405,7 @@ void BPTree::remove(int x)
             leftNode->ptr[leftNode->size] = NULL;
             leftNode->size += cursor->size;
             leftNode->ptr[leftNode->size] = cursor->ptr[cursor->size];
-//            cout<<"Merging two leaf nodes\n";
+            cout<<"Merging two leaf nodes\n";
             removeInternal(parent->key[leftSibling],parent,cursor);// delete parent node key
             delete[] cursor->key;
             delete[] cursor->ptr;
@@ -427,7 +422,7 @@ void BPTree::remove(int x)
             cursor->ptr[cursor->size] = NULL;
             cursor->size += rightNode->size;
             cursor->ptr[cursor->size] = rightNode->ptr[rightNode->size];
-//            cout<<"Merging two leaf nodes\n";
+            cout<<"Merging two leaf nodes\n";
             removeInternal(parent->key[leftSibling+1],parent,rightNode);// delete parent node key
             delete[] rightNode->key;
             delete[] rightNode->ptr;
@@ -452,7 +447,7 @@ void BPTree::removeInternal(int x, Node* cursor, Node* child)
                 delete[] cursor->key;
                 delete[] cursor->ptr;
                 delete cursor;
-//                cout<<"Changed root node\n";
+                cout<<"Changed root node\n";
                 return;
             }
             else if(cursor->ptr[0] == child)
@@ -464,7 +459,7 @@ void BPTree::removeInternal(int x, Node* cursor, Node* child)
                 delete[] cursor->key;
                 delete[] cursor->ptr;
                 delete cursor;
-//                cout<<"Changed root node\n";
+                cout<<"Changed root node\n";
                 return;
             }
         }
@@ -496,10 +491,10 @@ void BPTree::removeInternal(int x, Node* cursor, Node* child)
     cursor->size--;
     if(cursor->size >= (MAX+1)/2-1)//no underflow
     {
-//        cout<<"Deleted "<<x<<" from internal node successfully\n";
+        cout<<"Deleted "<<x<<" from internal node successfully\n";
         return;
     }
-//    cout<<"Underflow in internal node!\n";
+    cout<<"Underflow in internal node!\n";
     //underflow, try to transfer first
     Node* parent = findParent(root, cursor);
     int leftSibling, rightSibling;
@@ -538,7 +533,7 @@ void BPTree::removeInternal(int x, Node* cursor, Node* child)
             cursor->ptr[0] = leftNode->ptr[leftNode->size];
             cursor->size++;
             leftNode->size--;
-//            cout<<"Transferred "<<cursor->key[0]<<" from left sibling of internal node\n";
+            cout<<"Transferred "<<cursor->key[0]<<" from left sibling of internal node\n";
             return;
         }
     }
@@ -564,7 +559,7 @@ void BPTree::removeInternal(int x, Node* cursor, Node* child)
             }
             cursor->size++;
             rightNode->size--;
-//            cout<<"Transferred "<<cursor->key[0]<<" from right sibling of internal node\n";
+            cout<<"Transferred "<<cursor->key[0]<<" from right sibling of internal node\n";
             return;
         }
     }
@@ -587,7 +582,7 @@ void BPTree::removeInternal(int x, Node* cursor, Node* child)
         cursor->size = 0;
         //delete cursor
         removeInternal(parent->key[leftSibling], parent, cursor);
-//        cout<<"Merged with left sibling\n";
+        cout<<"Merged with left sibling\n";
         
     }
     else if(rightSibling <= parent->size)
@@ -608,7 +603,7 @@ void BPTree::removeInternal(int x, Node* cursor, Node* child)
         rightNode->size = 0;
         //delete cursor
         removeInternal(parent->key[leftSibling], parent, rightNode);
-//        cout<<"Merged with right sibling\n";
+        cout<<"Merged with right sibling\n";
     }
 }
 void BPTree::display(Node* cursor)
@@ -648,14 +643,13 @@ void BPTree::cleanUp(Node* cursor)
         }
         for(int i = 0; i < cursor->size; i++)
         {
-//            cout<<"Deleted key from memory: "<<cursor->key[i]<<"\n";
+            cout<<"Deleted key from memory: "<<cursor->key[i]<<"\n";
         }
         delete[] cursor->key;
         delete[] cursor->ptr;
         delete cursor;
     }
 }
-
 BPTree::~BPTree()
 {
     //calling cleanUp routine
