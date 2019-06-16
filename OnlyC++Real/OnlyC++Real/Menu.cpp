@@ -8,11 +8,35 @@
 
 #include "Menu.hpp"
 
-void menu::Menu(){
+void menu::StartTimer(){
+    start = clock();
+}
+
+void menu::CountTimeAndShowRes()
+{
+    duration = (clock() - start) / (double) CLOCKS_PER_SEC;
+    
+    cout<<"\n(Время выполнения заняло "<< duration <<" секунд) \n";
+}
+
+void menu::Menu()
+{
     DoubleList a;
     Sorting sort;
-    int value, position, x, y;
+    BPTree bpt;
+    int value, position, x, y, z, q, w;
     int size;
+    
+    string command;
+    int xx;
+    bool close = false;
+    vector<int> vecTreeBPlus;
+//    command = "5";
+//    stringstream max(command);
+//    max>>MAX;
+//    cin.clear();
+//    cin.ignore(1);
+    
     do
     {
         cout<<"1. Добавить элемент"<<endl;
@@ -25,34 +49,53 @@ void menu::Menu(){
         cout<<"8. Найти елемент списка по ключу"<<endl;
         cout<<"9. Изменить елемент списка по ключу"<<endl;
         cout<<"10. Сортировка"<<endl;
+        cout<<"11. Трансформация в сбалансированое дерево поиска"<<endl;
         cout<<"0. Выйти"<<endl;
         cout<<"\nНомер операции > "; cin>>x;
+        cout<<"\n";
         switch (x)
         {
             case 1:
                 cout<<"Значение > "; cin>>value;
                 cout<<"Позиция (если выбрать 0, то елемент вставится в конец ) > "; cin>>position;
+                StartTimer();
                 a.AddList(value, position);
+                CountTimeAndShowRes();
+                cout<<"\nЭлемент добавлен...\n\n";
                 break;
             case 2:
                 cout<<"Позиция > "; cin>>position;
+                StartTimer();
                 a.DeleteList(position);
+                CountTimeAndShowRes();
+                cout<<"\nЭлемент удален...\n\n";
                 break;
             case 3:
+                StartTimer();
                 a.СleanList();
+                CountTimeAndShowRes();
                 break;
             case 4:
+                StartTimer();
                 a.PrintList(false, true);
+                CountTimeAndShowRes();
                 break;
             case 5:
+                StartTimer();
                 a.PrintList(true, false);
+                CountTimeAndShowRes();
                 break;
             case 6:
+                StartTimer();
                 a.PrintList(true, true);
+                CountTimeAndShowRes();
                 break;
             case 7:
                 cout<<"Количество элементов > "; cin>>size;
+                StartTimer();
                 a.GenerateRandomList(size);
+                CountTimeAndShowRes();
+                cout<<"\nЭлементы добавлены...\n\n";
                 break;
             case 8:
                 cout<<"Номер ключа > "; cin>>value;
@@ -60,7 +103,9 @@ void menu::Menu(){
                 if (a.GetValueByKey(value).first == a.GetValueByKey(value).second == -1) {
                     cout << "не найден";
                 }else{
+                    StartTimer();
                     cout << a.GetValueByKey(value).second;
+                    CountTimeAndShowRes();
                 }
                 cout << "\n\n";
                 break;
@@ -69,9 +114,11 @@ void menu::Menu(){
                 cout<<"Значение > "; cin>>value;
                 
                 cout<<"Операция < ";
+                StartTimer();
                 a.ChangeValueByKey(position, value);
+                CountTimeAndShowRes();
                 break;
-            case 10:
+            case 10: // Sorting
                 sort.CopyToVec();
                 do{
                     cout<<"1. Quick Sort"<<endl;
@@ -80,21 +127,29 @@ void menu::Menu(){
                     cout<<"4. Radix Sort"<<endl;
                     cout<<"5. Сохранить очередность и выйти с меню сортировки"<<endl;
                     cout<<"6. Show"<<endl;
-                    cout<<"0. Выйти"<<endl;
+                    cout<<"0. Выйти с этого раздела"<<endl;
                     cout<<"\nНомер операции > "; cin>>y;
-                    
+                    cout<<"\n";
                     switch (y) {
                         case 1:
+                            StartTimer();
                             sort.QuickSort();
+                            CountTimeAndShowRes();
                             break;
                         case 2:
+                            StartTimer();
                             sort.SelectSort();
+                            CountTimeAndShowRes();
                             break;
                         case 3:
+                            StartTimer();
                             sort.HeapSort();
+                            CountTimeAndShowRes();
                             break;
                         case 4:
+                            StartTimer();
                             sort.RadixSort();
+                            CountTimeAndShowRes();
                             break;
                         case 5:
                             bool full;
@@ -104,17 +159,82 @@ void menu::Menu(){
                                 cout << " Сохранить с елемента №"; cin >> from;
                                 cout << " по елемента №"; cin >> to;
                             }
-                            
+                            StartTimer();
                             sort.Save(from, to, full);
+                            CountTimeAndShowRes();
                             y = 0;
                             break;
                         case 6:
+                            StartTimer();
                             sort.ShowVec();
+                            CountTimeAndShowRes();
                             break;
                     }
+                    cout<<"\n";
                 }while (y!=0);
                 sort.CleanVec();
                 break;
+            case 11: // Trees
+                do{
+                    cout<<"1. B+"<<endl;
+                    cout<<"2. R-B"<<endl;
+                    cout<<"0. Выйти с этого раздела"<<endl;
+                    cout<<"\nНомер операции > "; cin>>z;
+                    cout<<"\n";
+                    switch (z) {
+                        case 1:
+                            do{
+                                cout<<"You choosed B+"<<endl;
+                                cout<<"0. Выйти с этого раздела"<<endl;
+                                cout<<"\nНомер операции > "; cin>>w;
+                            }while (w!=0);
+                            break;
+                            
+                        case 2:
+                            cout<<"You choosed R-B\n";
+                            cout<<"Максимальное количество элементов в одном блоке? :\n";
+                            cin>>command;
+                            stringstream max(command);
+                            max>>MAX;
+
+                            bpt.Copy(vecTreeBPlus);
+                            
+                            cout<<"Имя операции > \n";
+                            cout<<"insert <value> - чтобы вставить\n";
+                            cout<<"delete <value> - чтобы удалить\n";
+                            cout<<"display - чтобы вывести информацию на экран\n";
+                            cout<<"exit - чтобы выйти с этого раздела\n";
+                            do
+                            {
+                                cout<<"Enter command: ";
+                                getline(cin,command);
+                                if(!command.substr(0,6).compare("insert"))
+                                {
+                                    stringstream argument(command.substr(7));
+                                    argument>>xx;
+                                    bpt.insert(xx);
+                                }
+                                else if(!command.substr(0,6).compare("delete"))
+                                {
+                                    stringstream argument(command.substr(7));
+                                    argument>>xx;
+                                    bpt.remove(xx);
+                                }
+                                else if(!command.compare("display"))
+                                {
+                                    bpt.display(bpt.getRoot());
+                                }
+                                else if(!command.compare("exit"))
+                                {
+                                    close = true;
+                                }
+                            }while(!close);
+                            break;
+                    }
+                    cout<<"\n";
+                }while (z!=0);
+                break;
         }
+        cout<<"\n";
     } while (x!=0);
 }

@@ -12,10 +12,21 @@
 #include <stdio.h>
 #include "Sorting.hpp"
 #include "SL.hpp"
+#include "BPlusTree.hpp"
+#include "BPlusTree.cpp"
+#include "RBTree.hpp"
+#include <ctime>
 
 class menu{
 public:
     void Menu();
+    
+    void CountTimeAndShowRes();
+    void StartTimer();
+    
+private:
+    clock_t start;
+    double duration;
 };
 
 

@@ -50,7 +50,7 @@ void DoubleList::AddList(int value, int position)
         node->next=p;
         p->prev=node;
     }
-    cout<<"\nЭлемент добавлен...\n\n";
+//    cout<<"\nЭлемент добавлен...\n\n";
 }
 
 //***********************УДАЛЕНИЕ ЭЛЕМЕНТА***********************
@@ -73,7 +73,7 @@ void DoubleList::DeleteList(int position)
         a->next->prev=a->prev;
         delete a;
     }
-    cout<<"\nЭлемент удален...\n\n";
+//    cout<<"\nЭлемент удален...\n\n";
 }
 
 //***********************УДАЛЕНИЕ ВСЕХ ЭЛЕМЕНТОВ***********************
