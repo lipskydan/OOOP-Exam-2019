@@ -10,7 +10,7 @@
 
 using namespace std;
 
-DoubleList *head;
+
 int global_key = 1;
 
 bool DoubleList::EmptyList(){

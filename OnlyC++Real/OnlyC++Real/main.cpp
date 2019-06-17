@@ -13,11 +13,16 @@
 #include "Sorting.cpp"
 #include "Menu.hpp"
 #include "Menu.cpp"
+#include "UnitTest.hpp"
+#include "UnitTest.cpp"
 
 using namespace std;
 
 int main() {
     setlocale(LC_ALL, "Rus");
+    Test test;
+    test.RunAll();
+    
     menu m;
     m.Menu();
     return 0;

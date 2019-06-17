@@ -39,8 +39,6 @@ public:
     
     vector<int> pos;
     vector<vector<int>> hashtable;
-//    vector<vector<int>> hashtable; //[ver][MAXN];
-//    vector<int> pos; //[ver];
     vector<int> vec;
 };
 

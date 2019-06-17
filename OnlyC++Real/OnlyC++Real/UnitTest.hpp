@@ -10,6 +10,28 @@
 #define UnitTest_hpp
 
 #include <stdio.h>
-#include <gtest.h>
+#include <vector>
+
+#include "SL.hpp"
+
+class Test{
+public:
+    Test();
+    void RunAll();
+    
+    bool CopyToVecTest();
+    bool SortingTest();
+    bool HashingTest();
+    
+private:
+    vector<int> TestVec;
+    const int TestListSize;
+    DoubleList TestList;
+    Sorting sort;
+    Hash hash;
+};
 
 #endif /* UnitTest_hpp */
+
+
+

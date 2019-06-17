@@ -37,4 +37,5 @@ struct DoubleList
     
 };
 
+DoubleList *head;
 #endif /* SL_hpp */

@@ -145,25 +145,21 @@ void Sorting::radixSortAlg()
 void Sorting::QuickSort()
 {
     quickSortAlg(0, vec.size()-1);
-    cout<<"\nОтсортировано...\n\n";
 }
 
 void Sorting::SelectSort()
 {
     selectionSortAlg(vec.size());
-    cout<<"\nОтсортировано...\n\n";
 }
 
 void Sorting::HeapSort()
 {
     heapSortAlg(vec.size());
-    cout<<"\nОтсортировано...\n\n";
 }
 
 void Sorting::RadixSort()
 {
     radixSortAlg();
-    cout<<"\nОтсортировано...\n\n";
 }
 
 //**********************ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ**********************

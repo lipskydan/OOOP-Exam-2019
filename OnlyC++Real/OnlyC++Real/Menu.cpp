@@ -130,21 +130,25 @@ void menu::Menu()
                     cout<<"\n";
                     switch (y) {
                         case 1:
+                            cout<<"\nОтсортировано...\n\n";
                             StartTimer();
                             sort.QuickSort();
                             CountTimeAndShowRes();
                             break;
                         case 2:
+                            cout<<"\nОтсортировано...\n\n";
                             StartTimer();
                             sort.SelectSort();
                             CountTimeAndShowRes();
                             break;
                         case 3:
+                            cout<<"\nОтсортировано...\n\n";
                             StartTimer();
                             sort.HeapSort();
                             CountTimeAndShowRes();
                             break;
                         case 4:
+                            cout<<"\nОтсортировано...\n\n";
                             StartTimer();
                             sort.RadixSort();
                             CountTimeAndShowRes();
