@@ -8,6 +8,7 @@
 
 #include "Menu.hpp"
 
+
 void menu::StartTimer(){
     start = clock();
 }
@@ -116,7 +117,7 @@ void menu::Menu()
                 CountTimeAndShowRes();
                 break;
             case 10: // Sorting
-                sort.CopyToVec();
+                CopyToVec(a, sort.vec);
                 do{
                     cout<<"1. Quick Sort"<<endl;
                     cout<<"2. Select Sort"<<endl;
@@ -269,7 +270,8 @@ void menu::Menu()
                 break;
             case 12:
                 cout<<"Hashing"<<endl;
-                hash.CopyToVec();
+                CopyToVec(a, hash.vec);
+                
 //                for (int i = 0; i < hash.vec.size(); i++) {
 //                    cout << hash.vec[i] << " \n";
 //                }
@@ -277,9 +279,9 @@ void menu::Menu()
 //                    3, 36, 39};
 ////                cout<<"MAXN ="<<hash.MAXN<<endl;
                 hash.CuckooAlg(hash.vec, hash.vec.size());
-//                cout<<"\n";
-//                hash.printTable();
-//                cout<<"\n";
+                cout<<"\n";
+                hash.printTable();
+                cout<<"\n";
                 break;
         }
         cout<<"\n";

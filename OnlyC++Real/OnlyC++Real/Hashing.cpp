@@ -6,10 +6,15 @@
 //  Copyright © 2019 Danial. All rights reserved.
 //
 
-#include "Hashing.hpp"
+#include "Hashing.hpp"7
 
 void Hash::initTable()
 {
+    hashtable.resize(ver);
+    hashtable[0].resize(MAXN);
+    hashtable[1].resize(MAXN);
+    pos.resize(ver);
+    
     for (int j=0; j < MAXN; j++)
         for (int i=0; i < ver; i++)
            hashtable[i][j] = INT_MIN;
@@ -75,6 +80,7 @@ void Hash::printTable()
 
 void Hash::CuckooAlg(vector<int> keys, int n)
 {
+    MAXN = vec.size()+1;
     // initialize hash tables to a dummy value (INT-MIN)
     // indicating empty position
     initTable();
@@ -102,7 +108,6 @@ void Hash::CopyToVec()
         p = p->next;
     }while (p!=head);
     
-    MAXN = vec.size();
 }
 
 void Hash::Cuckoo()

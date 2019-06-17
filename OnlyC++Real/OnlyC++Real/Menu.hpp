@@ -18,6 +18,9 @@
 #include "RBTree.cpp"
 #include "Hashing.hpp"
 #include "Hashing.cpp"
+#include "Utils.hpp"
+#include "Utils.cpp"
+#include "UnitTest.hpp"
 #include <ctime>
 
 class menu{
