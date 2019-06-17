@@ -29,6 +29,8 @@
 		25369FFF22B4D20E0046958E /* SL.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SL.hpp; sourceTree = "<group>"; };
 		2536A00122B4F0DC0046958E /* Sorting.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Sorting.cpp; sourceTree = "<group>"; };
 		2536A00222B4F0DC0046958E /* Sorting.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Sorting.hpp; sourceTree = "<group>"; };
+		2550729E22B6A57C00BC6BEF /* Hashing.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Hashing.cpp; sourceTree = "<group>"; };
+		2550729F22B6A57C00BC6BEF /* Hashing.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Hashing.hpp; sourceTree = "<group>"; };
 		25AC921422B50CD8008C0944 /* Menu.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Menu.cpp; sourceTree = "<group>"; };
 		25AC921522B50CD8008C0944 /* Menu.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Menu.hpp; sourceTree = "<group>"; };
 		25DAC40622B63523007314EF /* BPlusTree.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BPlusTree.cpp; sourceTree = "<group>"; };
@@ -73,6 +75,8 @@
 				2536A00122B4F0DC0046958E /* Sorting.cpp */,
 				2536A00222B4F0DC0046958E /* Sorting.hpp */,
 				25AC921422B50CD8008C0944 /* Menu.cpp */,
+				2550729E22B6A57C00BC6BEF /* Hashing.cpp */,
+				2550729F22B6A57C00BC6BEF /* Hashing.hpp */,
 				25DAC40922B63925007314EF /* RBTree.cpp */,
 				25DAC40A22B63925007314EF /* RBTree.hpp */,
 				25DAC40622B63523007314EF /* BPlusTree.cpp */,

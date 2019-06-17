@@ -15,12 +15,16 @@
 #include "BPlusTree.hpp"
 #include "BPlusTree.cpp"
 #include "RBTree.hpp"
+#include "RBTree.cpp"
+#include "Hashing.hpp"
+#include "Hashing.cpp"
 #include <ctime>
 
 class menu{
 public:
     void Menu();
-    
+
+private:
     void CountTimeAndShowRes();
     void StartTimer();
     

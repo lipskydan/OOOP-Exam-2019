@@ -24,18 +24,14 @@ void menu::Menu()
     DoubleList a;
     Sorting sort;
     BPTree bpt;
-    int value, position, x, y, z, q, w;
+    RBTree rbt;
+    Hash hash;
+    int value, position, x, y, z, w;
     int size;
     
     string command;
     int xx;
     bool close = false;
-
-//    command = "5";
-//    stringstream max(command);
-//    max>>MAX;
-//    cin.clear();
-//    cin.ignore(1);
     
     do
     {
@@ -50,6 +46,7 @@ void menu::Menu()
         cout<<"9. Изменить елемент списка по ключу"<<endl;
         cout<<"10. Сортировка"<<endl;
         cout<<"11. Трансформация в сбалансированое дерево поиска"<<endl;
+        cout<<"12. Hashing"<<endl;
         cout<<"0. Выйти"<<endl;
         cout<<"\nНомер операции > "; cin>>x;
         cout<<"\n";
@@ -183,10 +180,36 @@ void menu::Menu()
                     cout<<"\n";
                     switch (z) {
                         case 1:
+                            
+                            StartTimer();
+                            rbt.Copy();
+                            CountTimeAndShowRes();
+                            cout << "Список конвертирован в R-В дерево\n";
+                            cout<<"\n";
+                            rbt.ShowTree(rbt.getRoot());
+                            cout<<"\n";
                             do{
                                 cout<<"You choosed R-B\n";
+                                cout<<"1. AddToTree"<<endl;
+                                cout<<"2. ShowTree"<<endl;
                                 cout<<"0. Выйти с этого раздела"<<endl;
                                 cout<<"\nНомер операции > "; cin>>w;
+                                switch (w) {
+                                    case 1:
+                                        cout<<"Значение > "; cin>>value;
+                                        StartTimer();
+                                        rbt.AddToTree(rbt.getRoot(), value);
+                                        CountTimeAndShowRes();
+                                        cout<<"\nЭлемент добавлен...\n\n";
+                                        break;
+                                    case 2:
+                                        cout<<"\n";
+                                        StartTimer();
+                                        rbt.ShowTree(rbt.getRoot());
+                                        CountTimeAndShowRes();
+                                        cout<<"\n";
+                                        break;
+                                }
                             }while (w!=0);
                             break;
                             
@@ -201,6 +224,7 @@ void menu::Menu()
                             StartTimer();
                             bpt.Copy();
                             CountTimeAndShowRes();
+                            cout << "Список конвертирован в В+ дерево\n";
                             
                             do
                             {
@@ -209,7 +233,7 @@ void menu::Menu()
                                 cout<<"display - чтобы вывести информацию на экран\n";
                                 cout<<"exit - чтобы выйти с этого раздела\n";
                                 cout<<"Имя операции > \n";
-
+                            
                                 getline(cin,command);
                                 if(!command.substr(0,6).compare("insert"))
                                 {
@@ -242,6 +266,20 @@ void menu::Menu()
                     }
                     cout<<"\n";
                 }while (z!=0);
+                break;
+            case 12:
+                cout<<"Hashing"<<endl;
+                hash.CopyToVec();
+//                for (int i = 0; i < hash.vec.size(); i++) {
+//                    cout << hash.vec[i] << " \n";
+//                }
+//                int keys_1[] = {20, 50, 53, 75, 100, 67, 105,
+//                    3, 36, 39};
+////                cout<<"MAXN ="<<hash.MAXN<<endl;
+                hash.CuckooAlg(hash.vec, hash.vec.size());
+//                cout<<"\n";
+//                hash.printTable();
+//                cout<<"\n";
                 break;
         }
         cout<<"\n";
