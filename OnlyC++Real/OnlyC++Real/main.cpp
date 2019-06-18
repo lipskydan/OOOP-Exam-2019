@@ -19,11 +19,19 @@
 using namespace std;
 
 int main() {
+    int tmp;
     setlocale(LC_ALL, "Rus");
-    Test test;
-    test.RunAll();
+    cout << "0. UnitTests\n";
+    cout << "1. Программа\n";
+    cout << "Номер команды > "; cin >> tmp;
+    cout<<"\n";
     
-//    menu m;
-//    m.Menu();
+    if (tmp == 0){
+        Test test;
+        test.RunAll();
+    }else{
+        menu m;
+        m.Menu();
+    }
     return 0;
 }

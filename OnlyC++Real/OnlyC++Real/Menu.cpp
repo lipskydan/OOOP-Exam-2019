@@ -194,7 +194,7 @@ void menu::Menu()
                             rbt.ShowTree(rbt.getRoot());
                             cout<<"\n";
                             do{
-                                cout<<"You choosed R-B\n";
+                                cout<<"Вы выбрали R-B\n";
                                 cout<<"1. AddToTree"<<endl;
                                 cout<<"2. ShowTree"<<endl;
                                 cout<<"0. Выйти с этого раздела"<<endl;
@@ -219,7 +219,7 @@ void menu::Menu()
                             break;
                             
                         case 2:
-                            cout<<"You choosed B+"<<endl;
+                            cout<<"Вы выбрали B+"<<endl;
                             cout<<"Максимальное количество элементов в одном блоке? :";
                             cin>>command;
                             cout<<"\n";
@@ -273,7 +273,7 @@ void menu::Menu()
                 }while (z!=0);
                 break;
             case 12:
-                cout<<"Hashing"<<endl;
+                cout<<"Хеширование ......."<<endl;
                 CopyToVec(a, hash.vec);
                 StartTimer();
                 hash.Cuckoo();
