@@ -13,6 +13,17 @@
 
 Test::Test(): TestListSize(8) {
     
+    TestVec.push_back(20);
+    TestVec.push_back(50);
+    TestVec.push_back(53);
+    TestVec.push_back(75);
+    TestVec.push_back(100);
+    TestVec.push_back(67);
+    TestVec.push_back(105);
+    TestVec.push_back(3);
+    TestVec.push_back(36);
+    TestVec.push_back(39);
+    
     TestList.AddList(1);
     TestList.AddList(22);
     TestList.AddList(4363);
@@ -123,7 +134,35 @@ bool Test::SortingTest()
 
 bool Test::HashingTest()
 {
-   
+   vector<vector<int>> hashtable;
+    hashtable.resize(2);
+    hashtable[0].resize(11);
+    hashtable[1].resize(11);
+    
+    int dataForHash[] = {INT_MIN, 3, 100, 20,INT_MIN, INT_MIN, 36, 39,INT_MIN, 53,INT_MIN,INT_MIN, 50, 67, INT_MIN,INT_MIN,INT_MIN,INT_MIN, 75, 105,
+        INT_MIN, INT_MIN};
+    int ii = 0;
+    
+    for (int j=0; j < 11; j++){
+        for (int i=0; i < 2; i++){
+            hashtable[i][j] = dataForHash[ii];
+            ii++;
+        }
+    }
+    
+    for (int i = 0; i < TestVec.size(); i++)
+    {
+        hash.vec.push_back(TestVec[i]);
+    }
+
+    hash.Cuckoo();
+    
+    for (int j=0; j < 11; j++){
+        for (int i=0; i < 2; i++){
+            if (hash.hashtable[i][j] != hashtable[i][j]) return false;
+        }
+    }
+    
     return true;
 }
 
@@ -143,5 +182,13 @@ void Test::RunAll() {
     } else {
         std::cout << "[Failed]\n";
     }
+    
+    std::cout << "Starting test HashingTest...\n\n";
+    if (HashingTest()) {
+        std::cout << "HashingTest [✓ Success]\n\n";
+    } else {
+        std::cout << "[Failed]\n";
+    }
+    
     std::cout << "_____________________________________________________ \n\n\n";
 }

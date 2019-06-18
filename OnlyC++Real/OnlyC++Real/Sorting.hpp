@@ -16,7 +16,6 @@ class Sorting{
 public:
     std::vector<int> vec;
 public:
-    void CopyToVec();
     void Save(int from, int to, bool full);
     void ShowVec();
     void CleanVec();

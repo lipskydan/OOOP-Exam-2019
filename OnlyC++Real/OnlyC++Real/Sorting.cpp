@@ -164,21 +164,6 @@ void Sorting::RadixSort()
 
 //**********************ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ**********************
 
-void Sorting::CopyToVec()
-{
-    DoubleList *p=head;
-    if (p == NULL){
-        cout << "EMPTY";
-        return;
-    }
-    
-    do {
-        vec.push_back(p->data);
-        p = p->next;
-    }while (p!=head);
-    
-}
-
 void Sorting::Save(int from, int to, bool full)
 {
     DoubleList *p=head;

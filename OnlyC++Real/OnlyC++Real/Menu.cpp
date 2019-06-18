@@ -275,14 +275,9 @@ void menu::Menu()
             case 12:
                 cout<<"Hashing"<<endl;
                 CopyToVec(a, hash.vec);
-                
-//                for (int i = 0; i < hash.vec.size(); i++) {
-//                    cout << hash.vec[i] << " \n";
-//                }
-//                int keys_1[] = {20, 50, 53, 75, 100, 67, 105,
-//                    3, 36, 39};
-////                cout<<"MAXN ="<<hash.MAXN<<endl;
-                hash.CuckooAlg(hash.vec, hash.vec.size());
+                StartTimer();
+                hash.Cuckoo();
+                CountTimeAndShowRes();
                 cout<<"\n";
                 hash.printTable();
                 cout<<"\n";

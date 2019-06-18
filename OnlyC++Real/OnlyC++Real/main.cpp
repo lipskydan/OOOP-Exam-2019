@@ -23,7 +23,7 @@ int main() {
     Test test;
     test.RunAll();
     
-    menu m;
-    m.Menu();
+//    menu m;
+//    m.Menu();
     return 0;
 }

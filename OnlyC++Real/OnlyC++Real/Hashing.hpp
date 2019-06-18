@@ -18,8 +18,6 @@
 class Hash{
 public:
     void Cuckoo();
-    void CopyToVec();
-    void CuckooAlg(vector<int> keys, int n);
     void printTable();
     
     vector<int> getVec(){
@@ -30,7 +28,7 @@ private:
     void initTable();
     int hash(int function, int key);
     void place(int key, int tableID, int cnt, int n);
-    
+    void CuckooAlg(vector<int> keys, int n);
     
     
 public:

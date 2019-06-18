@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnlyC++Real/Sorting.cpp"
-            timestampString = "582491787.6175309"
+            timestampString = "582544091.119961"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "182"
-            endingLineNumber = "182"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
             landmarkName = "Sorting::Save(int from, int to, bool full)"
             landmarkType = "7">
          </BreakpointContent>
@@ -57,28 +57,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "OnlyC++Real/Menu.cpp"
-            timestampString = "582491787.617638"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "278"
-            endingLineNumber = "278"
-            landmarkName = "menu::Menu()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "OnlyC++Real/Hashing.cpp"
-            timestampString = "582484535.008701"
+            timestampString = "582544091.120083"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
             landmarkName = "Hash::place(int key, int tableID, int cnt, int n)"
             landmarkType = "7">
          </BreakpointContent>
@@ -90,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnlyC++Real/UnitTest.cpp"
-            timestampString = "582491787.617714"
+            timestampString = "582544091.120155"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
             landmarkName = "Test::CopyToVecTest()"
             landmarkType = "7">
          </BreakpointContent>
