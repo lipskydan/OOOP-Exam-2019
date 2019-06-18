@@ -195,8 +195,8 @@ void menu::Menu()
                             cout<<"\n";
                             do{
                                 cout<<"Вы выбрали R-B\n";
-                                cout<<"1. AddToTree"<<endl;
-                                cout<<"2. ShowTree"<<endl;
+                                cout<<"1. Добавить елемент"<<endl;
+                                cout<<"2. Вывести дерево на экран"<<endl;
                                 cout<<"0. Выйти с этого раздела"<<endl;
                                 cout<<"\nНомер операции > "; cin>>w;
                                 switch (w) {
